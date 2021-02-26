@@ -32,7 +32,7 @@ class Mailer:
         self.slack_token = environ.get('SLACK_TOKEN', None)
         self.slack_channel = environ.get('SLACK_CHANNEL', None)
         
-        self.max_file_size = environ.get('MAX_FILE_SIZE', defaults['max_file_size'])
+        self.max_file_size = int(environ.get('MAX_FILE_SIZE', defaults['max_file_size']))
         
         self.app = web.Application(client_max_size=self.max_file_size)
         
